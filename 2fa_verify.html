@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Verify 2FA — Secure Login System{% endblock %}
+{% block content %}
+<div class="card">
+    <h1>Two-Factor Verification</h1>
+    <p>Enter the 6-digit code from your authenticator app to complete login.</p>
+
+    <form method="POST" action="{{ url_for('verify_2fa') }}">
+        <label for="code">Authentication Code</label>
+        <input type="text" id="code" name="code" required pattern="\d{6}" maxlength="6" inputmode="numeric" autofocus>
+        <button type="submit">Verify</button>
+    </form>
+</div>
+{% endblock %}
